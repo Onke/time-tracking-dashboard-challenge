@@ -1,0 +1,81 @@
+.content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+
+.card {
+    height: 480px;
+    width: 250px;
+    border: 1px solid white;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-top {
+    display: flex;
+    flex-direction: column;
+    flex: 1.9;
+    background-color: hsl(246, 80%, 60%);
+    box-sizing: border-box;
+    border-radius: 20px;
+    z-index: 99;
+    padding: 20px;
+}
+
+.card-bottom {
+    background-color: hsl(235, 46%, 20%);
+    flex: 1.1;
+    margin-top: -15px;
+    box-sizing: border-box;
+    border-radius: 0 0 20px 20px;
+    padding: 20px;
+}
+
+.card-top-flexbox_1 {
+    display: flex;
+    flex: 1;
+    align-items: center;
+}
+
+.card-top-flexbox_1__picture {
+    width: 60px;
+    height: 60px;
+    border: 3px solid white;
+    border-radius: 30px;
+
+}
+
+.card-top-flexbox_2 {
+    flex: 2;
+    margin-top: 10px;
+
+}
+
+.card-top-flexbox_2, p{
+   font-size: 11px;
+   color: hsl(235, 45%, 61%);
+}
+
+.card-top-flexbox_2__name {
+    font-size: 32px;
+    margin-top: 5px;
+    color: hsl(236, 100%, 87%);
+}
+
+
+.card-bottom__list {
+    list-style: none;
+    margin-top: 25px;
+}
+
+.card-bottom__list__item {
+    color: aliceblue;
+    margin-top: 20px;
+}
+
+.card-bottom__list__item--active {
+
+}
