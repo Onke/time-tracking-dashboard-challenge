@@ -1,0 +1,48 @@
+p {
+    color: aliceblue;
+}
+
+.card {
+    width: 300px;
+    height: 300px;
+    border: 1px solid white;
+    border-radius: 20px;
+    display: flex;
+}
+
+.card-header {
+    flex: 1;
+    border-radius: 20px 20px 0 0;
+    background-color: blueviolet;
+    padding: 10px;    
+}
+
+.card-body {
+    flex: 4;
+    border-radius: 20px;
+    background-color: blue;
+    margin-top: -20px;
+    padding: 20px;
+    border: 1px solid red;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-body-top {
+    display: flex;
+    flex-direction: row;
+    border: 1px solid white;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.activity {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.ellipsis {
+    right: 0px;
+    align-items: center;
+    border: 1px solid white;
+}
