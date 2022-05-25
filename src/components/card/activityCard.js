@@ -5,14 +5,10 @@ export const ActivityCard = (props) => {
   const { colour, images, label, timePeriod, duration, previousDuration } =
     props;
 
-  console.log({ props });
-
   const style = {
     backgroundImage: "url(./images/icon-self-care.svg)",
     backgroundColor: `${colour}`,
   };
-
-  console.log(style);
 
   return (
     <div className="activity-card">
