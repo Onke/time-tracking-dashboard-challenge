@@ -5,8 +5,7 @@ import { ActivityCard } from "./components/card/activityCard";
 function App() {
   return (
     <div className="App">
-      {/* <Dashboard /> */}
-      <ActivityCard label="Acivity" />
+      <Dashboard />
     </div>
   );
 }
