@@ -1,10 +1,10 @@
-import { render } from "@testing-library/react";
-import React from "react";
+import React, { useState } from "react";
 import "./dashboard.css";
 import profilePicture from "./image-jeremy.png";
 import { ActivityCard } from "../card/activityCard";
 
 export const Dashboard = () => {
+  const [selectedPeriod, setSelectedPeriod] = useState("daily");
   const data = [
     {
       title: "Work",
@@ -22,6 +22,7 @@ export const Dashboard = () => {
           previous: 128,
         },
       },
+      colour: "hsl(15, 100%, 70%)",
     },
     {
       title: "Play",
@@ -39,6 +40,7 @@ export const Dashboard = () => {
           previous: 29,
         },
       },
+      colour: "hsl(195, 74%, 62%)",
     },
     {
       title: "Study",
@@ -56,6 +58,7 @@ export const Dashboard = () => {
           previous: 19,
         },
       },
+      colour: "hsl(348, 100%, 68%)",
     },
     {
       title: "Exercise",
@@ -73,6 +76,7 @@ export const Dashboard = () => {
           previous: 18,
         },
       },
+      colour: "hsl(145, 58%, 55%)",
     },
     {
       title: "Social",
@@ -90,6 +94,7 @@ export const Dashboard = () => {
           previous: 23,
         },
       },
+      colour: "hsl(264, 64%, 52%)",
     },
     {
       title: "Self Care",
@@ -107,32 +112,26 @@ export const Dashboard = () => {
           previous: 11,
         },
       },
+      colour: "hsl(43, 84%, 65%)",
     },
   ];
 
-  function ActivityCards() {
-    data.forEach((activity) => {
-      console.log("222");
-
-      return (
-        <div>
-          <ActivityCard
-            label={activity.title}
-            timePeriod="Week"
-            previousDuration="36hrs"
-            colour="white"
-          />
-        </div>
-      );
-    });
-  }
+  const timePeriod = {
+    daily: "Yesterday",
+    weekly: "Week",
+    monthly: "Month",
+  };
 
   return (
     <div className="container">
       <div className="card">
         <div className="card-top">
           <div className="card-top-flexbox_1">
-            <img className="card-top-flexbox_1__picture" src={profilePicture} />
+            <img
+              className="card-top-flexbox_1__picture"
+              src={profilePicture}
+              alt={"profile"}
+            />
           </div>
           <div className="card-top-flexbox_2">
             <p>Report for</p>
@@ -141,9 +140,24 @@ export const Dashboard = () => {
         </div>
         <div className="card-bottom">
           <ul className="card-bottom__list">
-            <li className="card-bottom__list__item">Daily</li>
-            <li className="card-bottom__list__item">Weeekly</li>
-            <li className="card-bottom__list__item">Monthly</li>
+            <li
+              className="card-bottom__list__item"
+              onClick={() => setSelectedPeriod("daily")}
+            >
+              Daily
+            </li>
+            <li
+              className="card-bottom__list__item"
+              onClick={() => setSelectedPeriod("weekly")}
+            >
+              Weeekly
+            </li>
+            <li
+              className="card-bottom__list__item"
+              onClick={() => setSelectedPeriod("monthly")}
+            >
+              Monthly
+            </li>
           </ul>
         </div>
       </div>
@@ -151,9 +165,11 @@ export const Dashboard = () => {
         {data.map((activity) => (
           <ActivityCard
             label={activity.title}
-            timePeriod="Week"
-            previousDuration="36hrs"
-            colour="white"
+            timePeriod={timePeriod[selectedPeriod]}
+            previousDuration={activity.timeframes[selectedPeriod].previous}
+            duration={activity.timeframes[selectedPeriod].current}
+            colour={activity.colour}
+            image={activity.image}
           />
         ))}
       </div>

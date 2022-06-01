@@ -1,13 +1,27 @@
 import React from "react";
 import "./activityCard.css";
+import iconWork from "./images/icon-work.png";
+import iconPlay from "./images/icon-play.png";
+import iconStudy from "./images/icon-study.png";
+import iconExcercise from "./images/icon-exercise.png";
+import iconSocial from "./images/icon-social.png";
+import iconSelfCare from "./images/icon-self-care.png";
 
 export const ActivityCard = (props) => {
-  const { colour, images, label, timePeriod, duration, previousDuration } =
-    props;
+  const { colour, label, timePeriod, duration, previousDuration } = props;
+
+  const backgroundImages = {
+    Work: iconWork,
+    Play: iconPlay,
+    Study: iconStudy,
+    Exercise: iconExcercise,
+    Social: iconSocial,
+    "Self Care": iconSelfCare,
+  };
 
   const style = {
-    backgroundImage: "url(./images/icon-self-care.svg)",
-    backgroundColor: `${colour}`,
+    backgroundImage: `url(${backgroundImages[label]})`,
+    backgroundColor: colour,
   };
 
   return (
@@ -18,9 +32,9 @@ export const ActivityCard = (props) => {
           <p className="activity">{label}</p>
           <p className="ellipsis">•••</p>
         </div>
-        <p className="duration">32hrs</p>
+        <p className="duration">{duration}hrs</p>
         <p className="previousDuration">
-          Last {timePeriod} - {previousDuration}
+          Last {timePeriod} - {previousDuration}hrs
         </p>
       </div>
     </div>
